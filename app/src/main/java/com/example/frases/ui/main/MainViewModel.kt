@@ -1,6 +1,7 @@
 package com.example.frases.ui.main
 
 import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.frases.data.Phrase
@@ -9,6 +10,8 @@ import com.example.frases.data.repository.MemoryRepository
 class MainViewModel: ViewModel() {
     private var memoryRepository: MemoryRepository = MemoryRepository(mutableListOf())
     private val _listOfPhrases = MutableLiveData<List<Phrase>>()
+
+    val listOfPhrases: LiveData<List<Phrase>> = _listOfPhrases
 
     fun startData() {
         _listOfPhrases.value = memoryRepository.showList()

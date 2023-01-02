@@ -28,16 +28,13 @@ class FrasesAdapter(
     override fun getItemCount(): Int = phrases.size
 
 
-    inner
-
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bind(item: Phrase) {
             binding.apply {
                 txtAuthorName.text = item.author
                 txtAuthorPhrase.text = item.phrase
             }
         }
-
     }
 
 }
