@@ -1,10 +1,13 @@
 package com.example.frases.ui.incluirFrase
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.frases.R
+import com.example.frases.data.Phrase
 import com.example.frases.databinding.ActivityIncluirFraseBinding
+import com.example.frases.ui.main.MainActivity
 
 class IncluirFraseActivity : AppCompatActivity() {
 
@@ -50,11 +53,16 @@ class IncluirFraseActivity : AppCompatActivity() {
             }
 
             if(author.isNotEmpty() && phrase.isNotEmpty()) {
-                Toast.makeText(
-                    applicationContext,
-                    "Salvo com sucesso",
-                    Toast.LENGTH_LONG
-                ).show()
+                Intent().apply {
+                    putExtra(
+                        MainActivity.RETURN_PHRASE,
+                        Phrase(
+                            author = author,
+                            phrase = phrase
+                        )
+                    )
+                    setResult(RESULT_OK, this)
+                }
                 finish()
             }
         }
