@@ -1,10 +1,12 @@
 package com.example.frases.ui.main
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.frases.R
 import com.example.frases.databinding.ActivityMainBinding
+import com.example.frases.ui.incluirFrase.IncluirFraseActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,12 +18,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
+        setupFabListener()
+    }
+
+
+    private fun setupFabListener() {
         binding.btnFabAdd.setOnClickListener {
-            Toast.makeText(
-                this,
-                "Clicado",
-                Toast.LENGTH_SHORT
-            ).show()
+            startActivity(Intent(this, IncluirFraseActivity::class.java))
         }
     }
 }

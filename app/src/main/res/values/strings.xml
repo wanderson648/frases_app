@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Frases</string>
     <string name="error_sem_frases">Ainda não existem frases cadastradas!</string>
+    <string name="hint_author">Autor:</string>
+    <string name="hint_phrase">Citação:</string>
+    <string name="cancel">Cancelar</string>
+    <string name="save">Salvar</string>
 </resources>
