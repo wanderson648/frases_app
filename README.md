@@ -1,5 +1,6 @@
 # Frases App
 ### Aplicativo que simula cadastro de frases com nome do autor.
+
 <br>
 
 ✔ Técnicas e tecnologias utilizadas
@@ -12,7 +13,7 @@
 - **ViewModel:** é uma classe não visual, que expões para a View uma lógica de apresentação.
 - **LiveData:**  cria uma comunicação reativa entre o seu ViewModel e o seu fragment ou sua activity.
 
-<br><br>
+<br>
 
 ![img1](https://user-images.githubusercontent.com/62625309/210275970-b28d37e2-708e-4f32-952a-c35f799d65e2.png)
 
@@ -23,3 +24,14 @@
 ![img4](https://user-images.githubusercontent.com/62625309/210276022-c8b57278-0aa2-4fcd-b7ad-579f00483785.png)
 
 ![img5](https://user-images.githubusercontent.com/62625309/210276045-a633ef55-4e97-4789-ad64-89eb06f301b5.png)
+
+<br>
+🛠 Abrir e rodar o projeto <br> <br>
+
+Após baixar o projeto, você pode abrir com o Android Studio. Para isso, na tela de launcher clique em: 
+
+- Open an Existing Project (ou alguma opção similar) 
+- Procure o local onde o projeto está e o selecione (Caso o projeto seja baixado via zip, é necessário extraí-lo antes de procurá-lo)
+- Por fim clique em OK <br>
+
+O Android Studio deve executar algumas tasks do Gradle para configurar o projeto, aguarde até finalizar. Ao finalizar as tasks, você pode executar o App
