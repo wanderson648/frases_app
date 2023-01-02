@@ -3,9 +3,14 @@ package com.example.frases.ui.main
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.frases.R
+import com.example.frases.data.Phrase
 import com.example.frases.databinding.ActivityMainBinding
 import com.example.frases.ui.incluirFrase.IncluirFraseActivity
 
@@ -39,12 +44,25 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupObservers() {
-        setupUpdateList()
+        setupRecyclerView()
     }
 
-    private fun setupUpdateList() {
+    private fun setupRecyclerView() {
         viewModel.listOfPhrases.observe(this) { list ->
-            Log.i("JPInfo", "setupUpdateList:Lista Recuperada $list")
+            Log.i("JPInfo", "Lista Recuperada $list")
+            updateList(list)
+        }
+    }
+
+    private fun updateList(list: List<Phrase>) {
+        if(list.isEmpty()) {
+            binding.rvListPhrase.visibility = View.GONE
+            binding.txtMessage.visibility = View.VISIBLE
+        } else {
+            binding.txtMessage.visibility = View.GONE
+            binding.rvListPhrase.visibility = View.VISIBLE
+            binding.rvListPhrase.adapter = FrasesAdapter(list)
+            binding.rvListPhrase.layoutManager = LinearLayoutManager(this)
         }
     }
 
@@ -59,8 +77,17 @@ class MainActivity : AppCompatActivity() {
                 returnPhrase.launch(it)
             }
         }
-    }
 
+        binding.btnFabAdd.setOnLongClickListener {
+            viewModel.clearListOfPhrases()
+            Toast.makeText(
+                this,
+                R.string.list_clear_success,
+                Toast.LENGTH_LONG
+            ).show()
+            it.isLongClickable
+        }
+    }
 
     companion object {
         const val RETURN_PHRASE = "retorno_frase"
